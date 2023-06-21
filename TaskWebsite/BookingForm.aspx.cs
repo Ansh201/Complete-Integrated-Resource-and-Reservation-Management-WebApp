@@ -77,7 +77,7 @@ namespace TaskWebsite
                         cs.RegisterStartupScript(GetType(), "SweetAlert", script, true);
                     }
                 }
-                
+
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "ErrorAlert", "Swal.fire({ icon: 'error', title: 'Error!', text: 'Invalid booking date format. Please enter the date in dd/MM/yyyy format.' });", true);
@@ -96,9 +96,9 @@ namespace TaskWebsite
 
         protected void UpdateBooking_Click(object sender, EventArgs e)
         {
-            
-                Response.Redirect("~/LoginPage.aspx");
-            
+
+            Response.Redirect("~/LoginPage.aspx");
+
 
 
         }
@@ -109,56 +109,59 @@ namespace TaskWebsite
         }
 
 
-        private void PopulatevehicleNo() {
+        private void PopulatevehicleNo()
+        {
 
             SqlConnection con = new SqlConnection(constr);
-            try 
+            try
             {
-               List<string> vehiclenolist= new List<string>();
+                List<string> vehiclenolist = new List<string>();
                 string getVehiclenosql = "select vehicle_no from vehicle";
                 SqlCommand cmd = new SqlCommand(getVehiclenosql, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) 
+                while (reader.Read())
                 {
                     vehiclenolist.Add(reader.GetString(0));
                 }
-                   VehicleDropDownList.DataSource = vehiclenolist;
-                   VehicleDropDownList.DataBind();
+                VehicleDropDownList.DataSource = vehiclenolist;
+                VehicleDropDownList.DataBind();
                 // Add "Select" option as default value
                 VehicleDropDownList.Items.Insert(0, new ListItem("Select Vehicle", ""));
 
             }
-            catch (SqlException ex) 
+            catch (SqlException ex)
             {
-            
-            
-            } finally 
+
+
+            }
+            finally
             {
                 con.Close();
             }
-        
-        
-        
-        
-        
+
+
+
+
+
         }
 
 
-        private void PopulateItemName() { 
-        
-        SqlConnection con= new SqlConnection(constr);
+        private void PopulateItemName()
+        {
 
-            try 
+            SqlConnection con = new SqlConnection(constr);
+
+            try
             {
                 List<string> Itemlist = new List<string>();
                 String getItemsql = "Select ItemName from ItemMaster";
                 SqlCommand cmd = new SqlCommand(getItemsql, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) 
+                while (reader.Read())
                 {
-                   Itemlist.Add(reader.GetString(0));
+                    Itemlist.Add(reader.GetString(0));
 
                 }
                 ItemNameDropDownList.DataSource = Itemlist;
@@ -169,22 +172,23 @@ namespace TaskWebsite
 
 
             }
-            catch (SqlException ex) 
+            catch (SqlException ex)
             {
-            
-            }finally 
+
+            }
+            finally
             {
                 con.Close();
             }
-        
-        
-        
+
+
+
         }
 
 
     }
 }
-    
 
 
-    
+
+

@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 namespace TaskWebsite
 {
 
-   
+
     public partial class Register : System.Web.UI.Page
     {
         string constr = ConfigurationManager.ConnectionStrings["dbcs"].ConnectionString;
@@ -20,20 +20,21 @@ namespace TaskWebsite
             populateStates();
             populateCities(StateDropDownList.SelectedValue);
 
-                   }
+        }
 
-       
+
         void clearControls()
         {
             FirstNameTextBox.Text = LastNameTextBox.Text = EmailTextBox.Text = RadioButtonList1.SelectedValue = UserNameTextBox.Text = PasswordTextBox.Text = ConfirmPasswordTextBox.Text = " ";
-           
+
 
         }
 
 
-          void populateStates() { 
-        
-              SqlConnection con=new SqlConnection(constr);
+        void populateStates()
+        {
+
+            SqlConnection con = new SqlConnection(constr);
 
             con.Open();
             String sqlquery = "SELECT name FROM states";
@@ -48,7 +49,7 @@ namespace TaskWebsite
             StateDropDownList.DataTextField = "name";
             StateDropDownList.DataBind();
             StateDropDownList.Items.Insert(0, new ListItem("Select State", ""));
-                
+
 
             // Close reader and connection
             reader.Close();
@@ -88,7 +89,7 @@ namespace TaskWebsite
 
 
         }
-        
+
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             string gender = RadioButtonList1.SelectedValue;
@@ -101,7 +102,7 @@ namespace TaskWebsite
             cmd.Parameters.AddWithValue("@gender", gender);
             cmd.Parameters.AddWithValue("@email", EmailTextBox.Text);
             cmd.Parameters.AddWithValue("@city", CityDropDownList.SelectedValue);
-            cmd.Parameters.AddWithValue("@state",StateDropDownList.SelectedValue);
+            cmd.Parameters.AddWithValue("@state", StateDropDownList.SelectedValue);
             cmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
             cmd.Parameters.AddWithValue("@password", PasswordTextBox.Text);
             cmd.Parameters.AddWithValue("@ConfirmPassword", ConfirmPasswordTextBox.Text);
@@ -123,10 +124,9 @@ namespace TaskWebsite
             con.Close();
         }
 
-       
+
     }
 }
 
-     
-        
-        
+
+
