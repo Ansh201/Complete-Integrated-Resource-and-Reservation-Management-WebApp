@@ -1,0 +1,328 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TaskWebsite.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <style media="screen">
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600&display=swap");
+
+      * {
+        font-family: "Baloo Paaji 2", cursive;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+      }
+
+      body {
+        background: lightgrey;
+      }
+
+      .top_navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 63px;
+        background: #323233;
+        box-shadow: 1px 0 20px green;
+        display: flex;
+        
+      }
+
+      .top_navbar .logo {
+        width: 220px;
+        font-size: 25px;
+        font-weight: 700;
+       
+        color: white;
+
+        text-transform: uppercase;
+        border-right: 1px solid white;
+      }
+      .logo2 {
+        font-size: 25px;
+        font-weight: bold;
+        color: red;
+        display: flex;
+        margin-right: 800px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .top_navbar .menu {
+        width: calc(100% - 250px);
+        padding: 0 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .top_navbar .hamburger {
+        font-size: 25px;
+        cursor: pointer;
+        color: white;
+      }
+
+      .top_navbar .hamburger:hover {
+        color: #007dc3;
+      }
+
+      /* Now I have determined what the sidebar will look like for a responsive device */
+      .hover_collapse .sidebar {
+        width: 70px;
+      }
+
+      .hover_collapse .sidebar ul li a .text {
+        display: none;
+      }
+      .page-content {
+  margin: 50px auto;
+  max-width: 800px;
+  padding-top: 40px;
+  margin-top: 100px;
+}
+        .container12 {
+        
+         margin: 50px auto;
+  max-width: 800px;
+  padding-top: 80px;
+        
+        }
+        .container13 {
+          margin-top: 50px;
+         margin: 50px auto;
+  max-width: 800px;
+  padding-top: 80px;
+        
+        }
+        .containers145 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-container {
+background-color: #f2f2f2;
+border-radius: 20px;
+padding: 20px;
+margin-top: 150px; /* change the margin-top value to shift the form down */
+width: 80%;
+max-width: 500px;
+box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+
+      .sidebar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 220px;
+        height: 100%;
+        background: #042331;
+      }
+
+      .sidebar ul li a {
+        display: block;
+        padding: 16px 25px;
+        border-bottom: 1px solid #03374e;
+        color: #0e94d4;
+      }
+
+      .sidebar ul li a .icon {
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+      }
+
+      .sidebar ul li a .text {
+        margin-left: 19px;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      .sidebar ul li a:hover {
+        background: #0e94d4;
+        color: #fff;
+      }
+      
+      /* Style for the master form header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+      .click_collapse .sidebar {
+      }
+       
+
+    </style>
+    <style>
+  /* Center the content of pages */
+  .page-content {
+    margin: 50px auto;
+    max-width: 800px;
+  }
+  .right-align {
+  text-align: right;
+}
+  .master-form-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+        
+
+  /*logo resize */
+  .logo2 {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.right-align {
+  text-align: center;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 60px; /* add some bottom padding */
+
+  
+}
+
+.logo img {
+  max-width: 100%;
+  height: 120px;
+}
+
+
+
+ 
+</style>
+
+</head>
+<body>
+    <div class="wrapper hover_collapse master-form-header">
+      <div class="top_navbar">
+<div class="logo">
+    <img src="Images/R.jpg" alt="" />
+   
+</div>
+       <div class="menu">
+  <div class="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="logo2 right-align text-center">Ansh Patel Software Pvt. Ltd</div>
+</div>
+
+      </div>
+</div>
+     <div class="sidebar">
+  <div class="sidebar_inner">
+    <ul>
+      <li class="icon_li">
+        <a href="#">
+          <span class="icon"><i class="fa fa-qrcode"></i></span>
+          <span class="text">Master</span>
+        </a>
+        <ul class="submenu" style="list-style-type: disc">
+          <li><a href="CatagoryMaster.aspx">Category Master</a></li>
+          <li><a href="ItemMaster.aspx">Item Master</a></li>
+          <li><a href="BookingForm.aspx">Booking</a></li>
+          <li><a href="UnitMaster.aspx">Unit Master</a></li>
+        </ul>
+      </li>
+      <li class="icon_li">
+        <a href="#">
+          <span class="icon"><i class="fa fa-link"></i></span>
+          <span class="text">Transaction</span>
+        </a>
+        <ul class="submenu" style="list-style-type: disc">
+          <li><a href="Transaction1.aspx">Transaction 1</a></li>
+          <li><a href="Transaction2.aspx">Transaction 2</a></li>
+        </ul>
+      </li>
+      <li class="icon_li">
+        <a href="LoginForm.aspx">
+          <span class="icon"><i class="fa fa-eye"></i></span>
+          <span class="text">Logout</span>
+        </a>
+        <ul class="submenu" style="list-style-type: disc">
+          <li><a href="LoginForm.aspx">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+    <script type="text/javascript">
+        //I have determined the constant of some class function
+        var li_items = document.querySelectorAll(".sidebar ul li");
+        var hamburger = document.querySelector(".hamburger");
+        var wrapper = document.querySelector(".wrapper");
+
+        //What will change if you move the mouse over the sidebar
+
+        li_items.forEach((li_item) => {
+            li_item.addEventListener("mouseenter", () => {
+                li_item.closest(".wrapper").classList.remove("hover_collapse");
+                //I have already added style information about hover_collapse
+            });
+            //In general, hover_collapse will be applied on the sidebar.
+
+            //Hover_collapse will be removed from the sidebar when the mouse is moved
+        });
+
+        li_items.forEach((li_item) => {
+            li_item.addEventListener("mouseleave", () => {
+                li_item.closest(".wrapper").classList.add("hover_collapse");
+                //Hover Collapse will be applied again when the mouse is removed
+            });
+        });
+
+        //Now I will execute the menu button
+
+        //I have instructed here that hover_collapse will be applied and removed when the menu button is clicked.
+
+        //This means that the first click will be applied and the second click will be removed
+        hamburger.addEventListener("click", () => {
+            hamburger.closest(".wrapper").classList.toggle("hover_collapse");
+        });
+    </script>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+              
+                </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
